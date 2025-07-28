@@ -6,9 +6,7 @@ export default function Home() {
 
   onMount(() => {
     // Get the global canvas element
-    const canvasElement = document.getElementById(
-      'global-canvas'
-    ) as HTMLCanvasElement;
+    const canvasElement = document.getElementById('global-canvas') as HTMLCanvasElement;
     if (!canvasElement) return;
 
     // Set up the global canvas
@@ -42,13 +40,11 @@ export default function Home() {
         'line-height': 1.6,
         'z-index': 2,
         position: 'relative',
-      }}
-    >
+      }}>
       <h1>Welcome to the Shape Generator!</h1>
       <p>
-        This app lets you generate a variety of shapes—lines, triangles,
-        squares, rectangles, circles, and more. Each shape is created with a
-        random element, making every one unique.
+        This app lets you generate a variety of shapes—lines, triangles, squares, rectangles,
+        circles, and more. Each shape is created with a random element, making every one unique.
       </p>
       <ul>
         <li>
@@ -58,14 +54,10 @@ export default function Home() {
           to generate a new random shape.
         </li>
         <li>
-          <strong>Use the navigation links above</strong> to choose which type
-          of shape to generate.
+          <strong>Use the navigation links above</strong> to choose which type of shape to generate.
         </li>
       </ul>
-      <p>
-        Have fun exploring the endless possibilities of randomly generated
-        shapes!
-      </p>
+      <p>Have fun exploring the endless possibilities of randomly generated shapes!</p>
     </div>
   );
 }

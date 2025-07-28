@@ -1,4 +1,4 @@
-import { onMount } from 'solid-js';
+import { onMount, onCleanup } from 'solid-js';
 import { useCanvas } from './canvasStore';
 
 export default function Triangle() {
@@ -6,9 +6,7 @@ export default function Triangle() {
 
   onMount(() => {
     // Get the global canvas element
-    const canvasElement = document.getElementById(
-      'global-canvas'
-    ) as HTMLCanvasElement;
+    const canvasElement = document.getElementById('global-canvas') as HTMLCanvasElement;
     if (!canvasElement) return;
 
     // Set up the global canvas
@@ -21,9 +19,19 @@ export default function Triangle() {
     // Handle window resize
     window.addEventListener('resize', handleResize);
 
+    // Handle space bar for redraw
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.code === 'Space') {
+        event.preventDefault(); // Prevent page scroll
+        drawTriangle();
+      }
+    };
+    document.addEventListener('keydown', handleKeyDown);
+
     // Cleanup function
     return () => {
       window.removeEventListener('resize', handleResize);
+      document.removeEventListener('keydown', handleKeyDown);
       clearCanvas();
     };
   });
@@ -34,9 +42,7 @@ export default function Triangle() {
   }
 
   function drawTriangle() {
-    const canvasElement = document.getElementById(
-      'global-canvas'
-    ) as HTMLCanvasElement;
+    const canvasElement = document.getElementById('global-canvas') as HTMLCanvasElement;
     if (!canvasElement) return;
 
     const ctx = canvasElement.getContext('2d');
@@ -91,8 +97,6 @@ export default function Triangle() {
         'line-height': 1.6,
         'z-index': 2,
         position: 'relative',
-      }}
-    >
-    </div>
+      }}></div>
   );
 }

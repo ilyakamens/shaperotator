@@ -1,4 +1,4 @@
-import { onMount } from 'solid-js';
+import { onMount, onCleanup } from 'solid-js';
 import { useCanvas } from './canvasStore';
 
 export default function Line() {
@@ -6,9 +6,7 @@ export default function Line() {
 
   onMount(() => {
     // Get the global canvas element
-    const canvasElement = document.getElementById(
-      'global-canvas'
-    ) as HTMLCanvasElement;
+    const canvasElement = document.getElementById('global-canvas') as HTMLCanvasElement;
 
     // Set up the global canvas
     setCanvas(canvasElement);
@@ -20,9 +18,19 @@ export default function Line() {
     // Handle window resize
     window.addEventListener('resize', handleResize);
 
+    // Handle space bar for redraw
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.code === 'Space') {
+        event.preventDefault(); // Prevent page scroll
+        drawLine();
+      }
+    };
+    document.addEventListener('keydown', handleKeyDown);
+
     // Cleanup function
     return () => {
       window.removeEventListener('resize', handleResize);
+      document.removeEventListener('keydown', handleKeyDown);
       clearCanvas();
     };
   });
@@ -33,9 +41,7 @@ export default function Line() {
   }
 
   function drawLine() {
-    const canvasElement = document.getElementById(
-      'global-canvas'
-    ) as HTMLCanvasElement;
+    const canvasElement = document.getElementById('global-canvas') as HTMLCanvasElement;
 
     const ctx = canvasElement.getContext('2d')!;
 
@@ -62,7 +68,6 @@ export default function Line() {
         'line-height': 1.6,
         'z-index': 2,
         position: 'relative',
-      }}
-    ></div>
+      }}></div>
   );
 }

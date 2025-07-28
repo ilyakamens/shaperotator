@@ -11,9 +11,7 @@ interface CanvasStore {
 const CanvasContext = createContext<CanvasStore>();
 
 export function CanvasProvider(props: { children: JSX.Element }) {
-  const [canvas, setCanvasSignal] = createSignal<HTMLCanvasElement | null>(
-    null
-  );
+  const [canvas, setCanvasSignal] = createSignal<HTMLCanvasElement | null>(null);
   const [ctx, setCtx] = createSignal<CanvasRenderingContext2D | null>(null);
 
   const setCanvas = (canvasElement: HTMLCanvasElement) => {
@@ -44,11 +42,7 @@ export function CanvasProvider(props: { children: JSX.Element }) {
     clearCanvas,
   };
 
-  return (
-    <CanvasContext.Provider value={store}>
-      {props.children}
-    </CanvasContext.Provider>
-  );
+  return <CanvasContext.Provider value={store}>{props.children}</CanvasContext.Provider>;
 }
 
 export function useCanvas() {
