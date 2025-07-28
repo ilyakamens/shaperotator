@@ -62,6 +62,12 @@ export default function Navigation() {
       <a href='/shaperotator/triangle' style={getLinkStyle('/triangle')}>
         Triangle
       </a>
+      <a href='/shaperotator/rectangle' style={getLinkStyle('/rectangle')}>
+        Rectangle
+      </a>
+      <a href='/shaperotator/oval' style={getLinkStyle('/oval')}>
+        Oval
+      </a>
       <a href='/shaperotator/about' style={getLinkStyle('/about')}>
         About
       </a>
