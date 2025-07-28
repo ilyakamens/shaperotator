@@ -53,16 +53,16 @@ export default function Navigation() {
       padding: 12px 0;
       text-align: center;
     '>
-      <a href='/' style={getLinkStyle('/')}>
+      <a href='/shaperotator/' style={getLinkStyle('/')}>
         Home
       </a>
-      <a href='/line' style={getLinkStyle('/line')}>
+      <a href='/shaperotator/line' style={getLinkStyle('/line')}>
         Line
       </a>
-      <a href='/triangle' style={getLinkStyle('/triangle')}>
+      <a href='/shaperotator/triangle' style={getLinkStyle('/triangle')}>
         Triangle
       </a>
-      <a href='/about' style={getLinkStyle('/about')}>
+      <a href='/shaperotator/about' style={getLinkStyle('/about')}>
         About
       </a>
     </nav>
