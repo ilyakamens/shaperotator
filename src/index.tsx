@@ -27,7 +27,7 @@ render(
         '
         />
         <Navigation />
-        <Router>
+        <Router base='/shaperotator'>
           <Route path='/' component={Home} />
           <Route path='/line' component={Line} />
           <Route path='/triangle' component={Triangle} />

@@ -3,6 +3,7 @@ import solidPlugin from 'vite-plugin-solid';
 
 export default defineConfig({
   plugins: [solidPlugin()],
+  base: '/shaperotator/',
   server: {
     port: 3000,
   },

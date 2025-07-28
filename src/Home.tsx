@@ -51,7 +51,7 @@ export default function Home() {
           <strong>
             Press the <kbd>Space</kbd> bar
           </strong>{' '}
-          to generate a new random shape.
+          to generate a new, unique shape.
         </li>
         <li>
           <strong>Use the navigation links above</strong> to choose which type of shape to generate.
