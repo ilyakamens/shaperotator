@@ -54,8 +54,8 @@ export default function Oval() {
     const height = canvasElement.height;
 
     // Random oval dimensions
-    const radiusX = Math.random() * 150 + 50;
-    const radiusY = Math.random() * 100 + 30;
+    const radiusX = Math.random() * 300 + 10;
+    const radiusY = Math.random() * 300 + 10;
 
     // Centered position (no random)
     const x = width / 2;
@@ -65,7 +65,6 @@ export default function Oval() {
     const rotation = Math.random() * Math.PI * 2;
 
     // Draw the oval outline (black, no fill)
-    ctx.save();
     ctx.translate(x, y);
     ctx.rotate(rotation);
     ctx.beginPath();
