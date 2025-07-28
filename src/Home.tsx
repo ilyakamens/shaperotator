@@ -1,4 +1,38 @@
+import { onMount } from 'solid-js';
+import { useCanvas } from './canvasStore';
+
 export default function Home() {
+  const { setCanvas, resizeCanvas, clearCanvas } = useCanvas();
+
+  onMount(() => {
+    // Get the global canvas element
+    const canvasElement = document.getElementById(
+      'global-canvas'
+    ) as HTMLCanvasElement;
+    if (!canvasElement) return;
+
+    // Set up the global canvas
+    setCanvas(canvasElement);
+    resizeCanvas();
+
+    // Clear the canvas for home page
+    clearCanvas();
+
+    // Handle window resize
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup function
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      clearCanvas();
+    };
+  });
+
+  function handleResize() {
+    resizeCanvas();
+    clearCanvas();
+  }
+
   return (
     <div
       style={{
@@ -6,6 +40,8 @@ export default function Home() {
         margin: '40px auto',
         'font-family': 'sans-serif',
         'line-height': 1.6,
+        'z-index': 2,
+        position: 'relative',
       }}
     >
       <h1>Welcome to the Shape Generator!</h1>
