@@ -72,6 +72,9 @@ export default function Navigation() {
       <a href='/shaperotator/random' style={getLinkStyle('/random')}>
         Random
       </a>
+      <a href='/shaperotator/radient' style={getLinkStyle('/radient')}>
+        Radient
+      </a>
       <a href='/shaperotator/about' style={getLinkStyle('/about')}>
         About
       </a>
