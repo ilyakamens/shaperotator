@@ -124,8 +124,10 @@ export default function Random() {
         'z-index': 2,
         position: 'relative',
       }}>
-      <h1>Random Pixel Generator</h1>
-      <p>Press the space bar to generate a new pixel pattern!</p>
+      <p>
+        This is a 300x300 pixel square containing only black and white pixels. Each pixel has a 50%
+        chance of being black or white. Press the space bar to regenerate.
+      </p>
     </div>
   );
 }

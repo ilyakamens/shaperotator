@@ -32,10 +32,11 @@ export default function Navigation() {
   });
 
   const isActive = (path: string) => {
+    const current = currentPath();
     if (path === '/') {
-      return currentPath() === '/';
+      return current === '/shaperotator/' || current === '/shaperotator';
     }
-    return currentPath().startsWith(path);
+    return current.includes(path);
   };
 
   const getLinkStyle = (path: string) => ({
