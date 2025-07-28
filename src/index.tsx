@@ -10,6 +10,7 @@ import Line from './Line';
 import Triangle from './Triangle';
 import Rectangle from './Rectangle';
 import Oval from './Oval';
+import Random from './Random';
 import About from './About';
 
 render(
@@ -35,6 +36,7 @@ render(
           <Route path='/triangle' component={Triangle} />
           <Route path='/rectangle' component={Rectangle} />
           <Route path='/oval' component={Oval} />
+          <Route path='/random' component={Random} />
           <Route path='/about' component={About} />
         </Router>
       </div>
