@@ -1,7 +1,6 @@
 import { onMount, onCleanup } from 'solid-js';
-import { useCanvas } from './canvasStore';
 
-export default function Perlin() {
+export default function Perline() {
   // Define event handlers outside onMount so they can be accessed in onCleanup
   let resizeTimeout: number | undefined;
   function debouncedHandleResize() {
@@ -160,7 +159,7 @@ export default function Perlin() {
         'z-index': 2,
         position: 'relative',
       }}>
-      <p>Press the space bar to generate a new Perline (Perline line)</p>
+      <p>Press the space bar to generate a new Perline (Perlin line)</p>
     </div>
   );
 }

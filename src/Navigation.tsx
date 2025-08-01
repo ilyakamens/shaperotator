@@ -75,7 +75,7 @@ export default function Navigation() {
       <a href='/shaperotator/radient' style={getLinkStyle('/radient')}>
         Radient
       </a>
-      <a href='/shaperotator/perlin' style={getLinkStyle('/perlin')}>
+      <a href='/shaperotator/perline' style={getLinkStyle('/perline')}>
         Perline
       </a>
       <a href='/shaperotator/about' style={getLinkStyle('/about')}>

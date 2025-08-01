@@ -12,7 +12,7 @@ import Rectangle from './Rectangle';
 import Oval from './Oval';
 import Random from './Random';
 import Radient from './Radient';
-import Perlin from './Perlin';
+import Perline from './Perline';
 import About from './About';
 
 render(
@@ -40,7 +40,7 @@ render(
           <Route path='/oval' component={Oval} />
           <Route path='/random' component={Random} />
           <Route path='/radient' component={Radient} />
-          <Route path='/perlin' component={Perlin} />
+          <Route path='/perline' component={Perline} />
           <Route path='/about' component={About} />
         </Router>
       </div>
