@@ -96,10 +96,15 @@ export default function Perline() {
     document.removeEventListener('keydown', handleKeyDown);
 
     // Restore canvas to original dimensions and positioning
-    canvasElement.width = window.innerWidth - 100;
-    canvasElement.height = window.innerHeight - 180;
-    canvasElement.style.top = '90px';
-    canvasElement.style.left = '50px';
+    const isMobile = window.innerWidth <= 768;
+    const margin = isMobile ? 20 : 50;
+    const topMargin = isMobile ? 60 : 90;
+    const bottomMargin = isMobile ? 120 : 180;
+
+    canvasElement.width = window.innerWidth - margin * 2;
+    canvasElement.height = window.innerHeight - topMargin - bottomMargin;
+    canvasElement.style.top = topMargin + 'px';
+    canvasElement.style.left = margin + 'px';
     canvasElement.style.transform = 'none';
   });
 

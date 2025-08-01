@@ -22,9 +22,18 @@ function AppContent() {
   onMount(() => {
     const canvas = document.getElementById('global-canvas') as HTMLCanvasElement;
     if (canvas) {
-      // Set canvas dimensions directly in JavaScript
-      canvas.width = window.innerWidth - 100;
-      canvas.height = window.innerHeight - 180;
+      // Set canvas dimensions responsively for mobile
+      const isMobile = window.innerWidth <= 768;
+      const margin = isMobile ? 20 : 50;
+      const topMargin = isMobile ? 60 : 90;
+      const bottomMargin = isMobile ? 120 : 180;
+
+      canvas.width = window.innerWidth - margin * 2;
+      canvas.height = window.innerHeight - topMargin - bottomMargin;
+
+      // Update canvas positioning for mobile
+      canvas.style.top = topMargin + 'px';
+      canvas.style.left = margin + 'px';
     }
   });
 

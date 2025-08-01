@@ -40,10 +40,12 @@ export default function Navigation() {
   };
 
   const getLinkStyle = (path: string) => ({
-    margin: '0 20px',
+    margin: '0 10px',
     'text-decoration': isActive(path) ? 'underline' : 'none',
     color: '#333',
     'font-weight': 'bold',
+    'font-size': '14px',
+    padding: '4px 8px',
   });
 
   return (
@@ -51,10 +53,13 @@ export default function Navigation() {
       style='
       background: #f8f8f8;
       border-bottom: 1px solid;
-      padding: 12px 0;
+      padding: 8px 0;
       text-align: center;
       z-index: 2;
       position: relative;
+      font-size: 14px;
+      overflow-x: auto;
+      white-space: nowrap;
     '>
       <a href='/shaperotator/' style={getLinkStyle('/')}>
         Home

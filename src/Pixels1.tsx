@@ -39,9 +39,15 @@ export default function Pixels1() {
       clearCanvas();
 
       // Restore canvas to original dimensions
-      canvasElement.width = window.innerWidth - 100;
-      canvasElement.height = window.innerHeight - 180;
-      canvasElement.style.left = '50px';
+      const isMobile = window.innerWidth <= 768;
+      const margin = isMobile ? 20 : 50;
+      const topMargin = isMobile ? 60 : 90;
+      const bottomMargin = isMobile ? 120 : 180;
+
+      canvasElement.width = window.innerWidth - margin * 2;
+      canvasElement.height = window.innerHeight - topMargin - bottomMargin;
+      canvasElement.style.left = margin + 'px';
+      canvasElement.style.top = topMargin + 'px';
     };
   });
 
@@ -65,9 +71,16 @@ export default function Pixels1() {
     const canvasElement = document.getElementById('global-canvas') as HTMLCanvasElement;
     if (!canvasElement) return;
 
-    canvasElement.width = 1344;
-    canvasElement.height = 640;
-    canvasElement.style.left = (window.innerWidth - 1344) / 2 + 'px';
+    // Set canvas dimensions responsively for mobile
+    const isMobile = window.innerWidth <= 768;
+    const margin = isMobile ? 20 : 50;
+    const topMargin = isMobile ? 60 : 90;
+    const bottomMargin = isMobile ? 120 : 180;
+
+    canvasElement.width = window.innerWidth - margin * 2;
+    canvasElement.height = window.innerHeight - topMargin - bottomMargin;
+    canvasElement.style.left = margin + 'px';
+    canvasElement.style.top = topMargin + 'px';
 
     const ctx = canvasElement.getContext('2d');
     if (!ctx) return;
