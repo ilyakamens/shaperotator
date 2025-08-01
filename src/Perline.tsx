@@ -70,11 +70,6 @@ export default function Perline() {
     canvasElement = document.getElementById('global-canvas') as HTMLCanvasElement;
 
     // Set up the global canvas with fixed size
-    canvasElement.width = 750;
-    canvasElement.height = 300;
-    canvasElement.style.width = '750px';
-    canvasElement.style.height = '300px';
-    canvasElement.style.position = 'fixed';
     canvasElement.style.top = '50%';
     canvasElement.style.left = '50%';
     canvasElement.style.transform = 'translate(-50%, -50%)';
@@ -100,14 +95,11 @@ export default function Perline() {
     window.removeEventListener('resize', debouncedHandleResize);
     document.removeEventListener('keydown', handleKeyDown);
 
-    // Restore canvas to original size for other components
-    canvasElement.width = window.innerWidth;
-    canvasElement.height = window.innerHeight;
-    canvasElement.style.width = '100%';
-    canvasElement.style.height = '100%';
-    canvasElement.style.position = 'absolute';
-    canvasElement.style.top = '0';
-    canvasElement.style.left = '0';
+    // Restore canvas to original dimensions and positioning
+    canvasElement.width = window.innerWidth - 100;
+    canvasElement.height = window.innerHeight - 180;
+    canvasElement.style.top = '90px';
+    canvasElement.style.left = '50px';
     canvasElement.style.transform = 'none';
   });
 

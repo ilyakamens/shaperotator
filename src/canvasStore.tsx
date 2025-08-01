@@ -24,8 +24,8 @@ export function CanvasProvider(props: { children: JSX.Element }) {
     const canvasElement = canvas();
     if (!canvasElement) return;
 
-    canvasElement.width = window.innerWidth;
-    canvasElement.height = window.innerHeight;
+    canvasElement.width = window.innerWidth - 100;
+    canvasElement.height = window.innerHeight - 180;
   };
 
   const clearCanvas = () => {

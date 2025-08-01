@@ -53,6 +53,8 @@ export default function Navigation() {
       border-bottom: 1px solid;
       padding: 12px 0;
       text-align: center;
+      z-index: 2;
+      position: relative;
     '>
       <a href='/shaperotator/' style={getLinkStyle('/')}>
         Home
@@ -77,6 +79,9 @@ export default function Navigation() {
       </a>
       <a href='/shaperotator/perline' style={getLinkStyle('/perline')}>
         Perline
+      </a>
+      <a href='/shaperotator/pixels1' style={getLinkStyle('/pixels1')}>
+        Pixels1
       </a>
       <a href='/shaperotator/about' style={getLinkStyle('/about')}>
         About

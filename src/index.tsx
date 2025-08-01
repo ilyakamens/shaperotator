@@ -13,38 +13,56 @@ import Oval from './Oval';
 import Random from './Random';
 import Radient from './Radient';
 import Perline from './Perline';
+import Pixels1 from './Pixels1';
 import About from './About';
 
-render(
-  () => (
+import { onMount } from 'solid-js';
+
+function AppContent() {
+  onMount(() => {
+    const canvas = document.getElementById('global-canvas') as HTMLCanvasElement;
+    if (canvas) {
+      // Set canvas dimensions directly in JavaScript
+      canvas.width = window.innerWidth - 100;
+      canvas.height = window.innerHeight - 180;
+    }
+  });
+
+  return (
+    <div>
+      <canvas
+        id='global-canvas'
+        style='
+        position: fixed;
+        top: 90px;
+        left: 50px;
+        pointer-events: none;
+        z-index: 1;
+      '
+      />
+      <Navigation />
+      <Router base='/shaperotator'>
+        <Route path='/' component={Home} />
+        <Route path='/line' component={Line} />
+        <Route path='/triangle' component={Triangle} />
+        <Route path='/rectangle' component={Rectangle} />
+        <Route path='/oval' component={Oval} />
+        <Route path='/random' component={Random} />
+        <Route path='/radient' component={Radient} />
+        <Route path='/perline' component={Perline} />
+        <Route path='/pixels1' component={Pixels1} />
+        <Route path='/about' component={About} />
+      </Router>
+    </div>
+  );
+}
+
+function App() {
+  return (
     <CanvasProvider>
-      <div>
-        <canvas
-          id='global-canvas'
-          style='
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100vw;
-          height: 100vh;
-          pointer-events: none;
-          z-index: 1;
-        '
-        />
-        <Navigation />
-        <Router base='/shaperotator'>
-          <Route path='/' component={Home} />
-          <Route path='/line' component={Line} />
-          <Route path='/triangle' component={Triangle} />
-          <Route path='/rectangle' component={Rectangle} />
-          <Route path='/oval' component={Oval} />
-          <Route path='/random' component={Random} />
-          <Route path='/radient' component={Radient} />
-          <Route path='/perline' component={Perline} />
-          <Route path='/about' component={About} />
-        </Router>
-      </div>
+      <AppContent />
     </CanvasProvider>
-  ),
-  document.getElementById('root')!
-);
+  );
+}
+
+render(() => <App />, document.getElementById('root')!);

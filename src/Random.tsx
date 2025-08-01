@@ -60,12 +60,6 @@ export default function Random() {
     // Restore canvas to original size for other components
     canvasElement.width = window.innerWidth;
     canvasElement.height = window.innerHeight;
-    canvasElement.style.width = '100%';
-    canvasElement.style.height = '100%';
-    canvasElement.style.position = 'absolute';
-    canvasElement.style.top = '0';
-    canvasElement.style.left = '0';
-    canvasElement.style.transform = 'none';
   });
 
   function handleResize() {
